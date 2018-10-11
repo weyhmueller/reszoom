@@ -1,5 +1,5 @@
 const normalDpiZoom = 1;
-const highDpiZoom = 2;
+const highDpiZoom = 1.25;
 
 function zoomSettingsSet() {
   if (chrome.runtime.lastError) {
@@ -58,7 +58,7 @@ function findScreen(window, screens) {
 
 function updateZoomLevelsForWindow(window, screens) {
   const screen = findScreen(window, screens);
-  if (screen.bounds && screen.bounds.width > 2800) {
+  if (screen.bounds && screen.bounds.width > 2000) {
     console.log('HiDPI');
     updateZoomLevelsForWindowTo(window.id, highDpiZoom);
   } else {
